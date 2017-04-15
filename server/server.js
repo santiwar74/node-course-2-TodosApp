@@ -25,6 +25,19 @@ todo.save().then((doc)=>{
 
 });
 
+app.get('/todos',(req,res)=>{
+
+    ToDo.find().then((todos)=>{
+        res.send({
+            todos
+        });
+    },(e)=>{
+ res.status(400).send(e);
+    });
+
+});
+
+
 
 app.listen(3000,()=>{
     console.log(`Server started at port 3000`)
